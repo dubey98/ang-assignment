@@ -1,16 +1,12 @@
-<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th>UserName</th>
-      <th>Email</th>
-      <th>some other things</th>
-    </tr>
-  </thead>
+<table class="table">
   <tbody>
-    <tr>
-      <td>shiv</td>
-      <td>shiv.dubey@dsidia</td>
-      <td>new user is here</td>
-    </tr>
+    <div *ngIf="users; else elseBlock">
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td appHighlighter>{{ user.email }}</td>
+      </tr>
+    </div>
+    <ng-template #elseBlock>The user list is Empty </ng-template>
   </tbody>
 </table>
